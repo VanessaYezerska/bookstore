@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Navbar -->
+<div th:replace="~{navbar :: navbarTemplate}"></div>
+
+<!-- Shopping Cart Section -->
+<div class="bg-white">
+    <div class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">Підсумок замовлення</h1>
+
+        <div th:if="${#lists.isEmpty(orders)}" class="text-center mt-12 text-gray-500">
+            <h2 class="text-xl">Замовлень не знайдено</h2>
+        </div>
+
+        <div th:each="order:${orders}" class="mt-12">
+            <form class="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+                <!-- Cart Section -->
+                <section class="lg:col-span-7">
+                    <ul role="list" class="divide-y divide-gray-200 border-t border-b border-gray-200">
+                        <li th:each="cart:${order.cart}" class="flex py-6 sm:py-10">
+                            <div class="shrink-0">
+                                <img th:src="@{${cart.product.imageLinks}}" alt="Book Cover" class="size-24 rounded-md object-cover sm:size-48" />
+                            </div>
+                            <div class="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
+                                <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                                    <div>
+                                        <div class="flex justify-between">
+                                            <h3 class="text-sm font-medium text-gray-700">
+                                                <a th:href="@{/product/{id}(id=${cart.product.id})}" class="hover:text-gray-800" th:text="${cart.product.title}">Book Title</a>
+                                            </h3>
+                                        </div>
+                                        <p class="mt-1 text-sm text-gray-500" th:text="${cart.product.author}">Author</p>
+                                        <p class="mt-1 text-sm font-medium text-gray-900" th:text="'RM ' + ${#numbers.formatDecimal(cart.price, 0, 'COMMA', 2, 'POINT')}"></p>
+                                    </div>
+                                    <div class="mt-4 sm:mt-0 sm:pr-9">
+                                        <p class="text-sm text-gray-600">Quantity: <span th:text="${cart.quantity}"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Summary Section -->
+                <section class="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+                    <h2 class="text-lg font-medium text-gray-900">Адреса доставки</h2>
+                    <p class="mt-2 text-sm text-gray-700" th:text="${order.user.Address}">Адреса</p>
+                    <div class="mt-6 border-t border-gray-200 pt-4">
+                        <h3 class="text-base font-medium text-gray-900">Сума замовлення</h3>
+                        <p th:text="'RM ' + ${#numbers.formatDecimal(
+            #aggregates.sum(
+                order.cart.![price * quantity]
+            ), 0, 'COMMA', 2, 'POINT'
+        )}">
+                            UAH 0.00
+                        </p>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{footer :: footerTemplate}"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+</body>
+</html>

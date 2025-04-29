@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Футер</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+<div class="content">
+    <!-- Основний вміст сторінки -->
+</div>
+
+<div th:fragment="footerTemplate">
+    <footer class="bg-gray-100 mt-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="border-t border-gray-300 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
+                <img class="h-9" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Логотип книгарні">
+
+                <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-900">Навігація</h3>
+                            <ul class="mt-6 space-y-4">
+                                <li><a href="/products" class="text-sm text-gray-600 hover:text-indigo-600">Всі книги</a></li>
+                                <li><a href="/new-arrivals" class="text-sm text-gray-600 hover:text-indigo-600">Нові надходження</a></li>
+                                <li><a href="/best-sellers" class="text-sm text-gray-600 hover:text-indigo-600">Лідери продажів</a></li>
+                            </ul>
+                        </div>
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-900">Підтримка</h3>
+                            <ul class="mt-6 space-y-4">
+                                <li><a href="/contact" class="text-sm text-gray-600 hover:text-indigo-600">Зв'язатися з нами</a></li>
+                                <li><a href="#" class="text-sm text-gray-600 hover:text-indigo-600">Поширені запитання</a></li>
+                                <li><a href="#" class="text-sm text-gray-600 hover:text-indigo-600">Доставка та оплата</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-900">Про книгарню</h3>
+                            <ul class="mt-6 space-y-4">
+                                <li><a href="#" class="text-sm text-gray-600 hover:text-indigo-600">Про нас</a></li>
+                                <li><a href="#" class="text-sm text-gray-600 hover:text-indigo-600">Блог</a></li>
+                                <li><a href="#" class="text-sm text-gray-600 hover:text-indigo-600">Вакансії</a></li>
+                            </ul>
+                        </div>
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-900">Правова інформація</h3>
+                            <ul class="mt-6 space-y-4">
+                                <li><a href="#" class="text-sm text-gray-600 hover:text-indigo-600">Умови використання</a></li>
+                                <li><a href="#" class="text-sm text-gray-600 hover:text-indigo-600">Політика конфіденційності</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 border-t border-gray-300 pt-8 md:flex md:items-center md:justify-between">
+                <div class="flex gap-x-6 md:order-2">
+                    <!-- Соціальні мережі -->
+                    <a href="#" class="text-gray-400 hover:text-gray-600">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.63 9.87v-7H8v-3h2.37V9.5c0-2.33 1.4-3.63 3.54-3.63 1.02 0 2.1.18 2.1.18v2.3h-1.18c-1.17 0-1.53.73-1.53 1.48V12H18l-.32 3h-2.75v7A10 10 0 0022 12z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-600">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3zm5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.5a1 1 0 110 2 1 1 0 010-2z"/></svg>
+                    </a>
+                </div>
+                <p class="mt-8 text-sm text-gray-500 md:order-1 md:mt-0">&copy; 2024 Bookssenav. Усі права захищено.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

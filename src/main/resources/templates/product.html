@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <title>Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}"/>
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+<!-- Navbar -->
+<div th:replace="~{navbar :: navbarTemplate}"></div>
+
+<!-- Product section -->
+<section class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Product image -->
+            <div class="flex justify-center">
+                <img th:src="${product.imageLinks}" alt="Book Cover" class="rounded-lg shadow-lg w-[60%] h-auto object-contain">
+            </div>
+
+            <!-- Product info -->
+            <div>
+                <p class="text-sm text-gray-500 mb-2">ISBN: <span th:text="${product.isbnIdentifier}">ISBN Identifier</span></p>
+                <h1 class="text-3xl font-bold mb-4" th:text="${product.title}">Назва книги</h1>
+
+                <div class="text-xl mb-4">
+                    <span class="line-through text-gray-400 mr-2" th:text="'₴ ' + ${#numbers.formatDecimal(product.retailPrice, 0, 'COMMA', 2, 'POINT')}">₴500.00</span>
+                    <span class="text-indigo-600 font-semibold" th:text="'₴ ' + ${#numbers.formatDecimal(product.listPrice, 0, 'COMMA', 2, 'POINT')}">₴420.00</span>
+                </div>
+
+                <div class="space-y-2 text-lg">
+                    <p><strong>Автор:</strong> <span th:text="${product.author}">Author</span></p>
+                    <p><strong>Видавець:</strong> <span th:text="${product.publisher}">Publisher</span></p>
+                    <p><strong>Дата публікації:</strong> <span th:text="${#dates.format(product.publishedDate, 'yyyy-MM-dd')}">Date</span></p>
+                    <p><strong>Кількість сторінок:</strong> <span th:text="${product.pageCount}">Pages</span></p>
+                    <p><strong>Мова:</strong> <span th:text="${product.language}">Language</span></p>
+                    <p><strong>Категорія:</strong> <span th:text="${product.categories}">Category</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mt-12">
+            <h2 class="text-xl font-semibold mb-2">Опис</h2>
+            <p class="text-gray-700 leading-relaxed" th:text="${product.description}">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit...
+            </p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <a href="/products"
+               class="inline-block bg-white border border-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-orange-200 hover:text-black transition">
+                Назад до списку
+            </a>
+
+            <a th:href="@{/addToCart/{id}(id=${product.id})}"
+               class="inline-flex items-center bg-white border border-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-green-200 hover:text-black transition">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 21a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 1a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM5 4h2l3.6 7.59-1.35 2.45A1 1 0 0 0 10 16h10v-2H11.42a.25.25 0 0 1-.21-.12l.03-.06L12.1 12H17a1 1 0 0 0 .9-.55l3.58-6.49A1 1 0 0 0 20.58 4H5z"/>
+                </svg>
+                Додати в кошик
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div th:replace="~{footer :: footerTemplate}"></div>
+
+</body>
+</html>

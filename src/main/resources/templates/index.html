@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+    <title>Bookssenav</title>
+</head>
+<body>
+
+
+<div id="hero-wrapper" class="relative h-[100vh] overflow-hidden">
+    <div id="bg1" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-100 z-0"></div>
+    <div id="bg2" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0 z-0"></div>
+    <div class="stick-nav" th:replace="~{navbar :: navbarTemplate}"></div>
+
+    <div class="jumbotron" style="margin-bottom: 30px;">
+        <div class="overlay">
+            <div id="slideshow" class="slideshow">
+                <img th:src="@{/images/homebanner1.png}" alt="Banner 1">
+                <img th:src="@{/images/homebanner2.png}" alt="Banner 2">
+                <img th:src="@{/images/homebanner3.jpg}" alt="Banner 3">
+                <img th:src="@{/images/homebanner4.jpg}" alt="Banner 4">
+            </div>
+            <div class="content">
+                <p class="text-3xl
+ text-shadow">Ласкаво просимо до нашої книгарні!</p>
+                <p class="text-3xl
+ text-shadow">Відкрийте для себе наступне чудове читання.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- HTML -->
+
+
+<div class="overflow-hidden bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <div class="max-w-4xl">
+            <p class="text-base font-semibold text-indigo-600">Про нас</p>
+            <h1 class="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Наша місія — зробити читання доступним кожному</h1>
+            <p class="mt-6 text-xl text-gray-700">Ми прагнемо створити простір, де кожен може знайти свою ідеальну книгу. Від класики до сучасних бестселерів — у нас є все, що потрібно для душі.</p>
+        </div>
+        <section class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+            <div class="lg:pr-8">
+                <h2 class="text-2xl font-semibold text-gray-900">Наша філософія</h2>
+                <p class="mt-6 text-base text-gray-600">Книги — це більше, ніж просто сторінки. Це вікна у нові світи, інструменти для розвитку та джерела натхнення. Ми віримо в силу читання і хочемо поділитися цим з вами.</p>
+                <p class="mt-8 text-base text-gray-600">Ми також підтримуємо місцевих авторів і пропонуємо ексклюзивні видання, які ви не знайдете ніде більше.</p>
+            </div>
+            <div class="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+                <div class="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
+                    <div class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+                        <img alt="Книгарня" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?&auto=format&fit=crop&w=560&h=560&q=90" class="block w-full h-full object-cover">
+                    </div>
+                    <div class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
+                        <img alt="Книги" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?&auto=format&fit=crop&w=560&h=560&q=90" class="block w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+                        <img alt="Читач" src="https://images.unsplash.com/photo-1591224792832-7751d3f0ce14?q=80&w=3125&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="block w-full h-full object-cover">
+                    </div>
+                    <div class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
+                        <img alt="Бібліотека" src="https://images.unsplash.com/photo-1532012197267-da84d127e765?&auto=format&fit=crop&w=560&h=560&q=90" class="block w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <div class="max-lg:mt-16 lg:col-span-1">
+                <p class="text-base font-semibold text-gray-500">Цифри говорять самі за себе</p>
+                <hr class="mt-6 border-t border-gray-200">
+                <dl class="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+                    <div class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+                        <dt class="text-sm text-gray-600">Книг продано</dt>
+                        <dd class="order-first text-6xl font-semibold tracking-tight">1.5М+</dd>
+                    </div>
+                    <div class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+                        <dt class="text-sm text-gray-600">Читачів</dt>
+                        <dd class="order-first text-6xl font-semibold tracking-tight">30К+</dd>
+                    </div>
+                    <div class="flex flex-col gap-y-2">
+                        <dt class="text-sm text-gray-600">Партнерів</dt>
+                        <dd class="order-first text-6xl font-semibold tracking-tight">200+</dd>
+                    </div>
+                    <div class="flex flex-col gap-y-2">
+                        <dt class="text-sm text-gray-600">Відгуків</dt>
+                        <dd class="order-first text-6xl font-semibold tracking-tight">10К+</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<div class="bg-white">
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900 text-center mb-10">Найпопулярніші книги</h2>
+
+        <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div class="group relative" th:each="product : ${bestSellers}">
+                <a th:href="@{/product/{id}(id=${product.id})}">
+                    <img th:src="@{${product.imageLinks}}"
+                         alt="Обкладинка книги"
+                         class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
+                </a>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700 font-medium text-ellipsis whitespace-nowrap overflow-hidden" th:text="${product.title}">Назва книги</h3>
+                        <p class="mt-1 text-sm text-gray-500" th:text="${product.author}">Автор</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm line-through text-gray-400" th:text="'₴ ' + ${#numbers.formatDecimal(product.retailPrice, 0, 'COMMA', 2, 'POINT')}">₴350.00</p>
+                        <p class="text-sm font-semibold text-gray-900" th:text="'₴ ' + ${#numbers.formatDecimal(product.listPrice, 0, 'COMMA', 2, 'POINT')}">₴280.00</p>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a th:href="@{/product/{id}(id=${product.id})}" class="inline-block w-full text-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500">Детальніше</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 flex justify-center">
+            <a href="/best-sellers" class="rounded-md bg-gray-900 px-5 py-2 text-sm font-semibold text-white hover:bg-gray-700">Переглянути більше</a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Footer -->
+<div th:replace="~{footer :: footerTemplate}"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/index.js}"></script>
+</body>
+</html>

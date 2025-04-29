@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-full bg-cover bg-center" style="background-image: url('/images/login.jpg');">
+
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm bg-white/10 backdrop-blur-lg shadow-lg rounded-lg px-6 py-8">
+
+        <div th:if="${param.success}">
+            <div class="bg-green-700 text-white p-3 rounded-md text-center mb-4">
+                <p>Реєстрацію успішно завершено!</p>
+            </div>
+        </div>
+
+        <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-white mb-6">
+            Registration
+        </h2>
+
+        <form th:action="@{/register}" method="post" role="form" th:object="${user}" class="space-y-4">
+
+            <div>
+                <label class="block text-sm font-medium text-white" for="fullname">Повне ім'я</label>
+                <input th:field="*{fullname}" required
+                       class="block w-full rounded-md bg-white/5 px-3 py-2 text-white placeholder:text-white outline-none focus:outline-indigo-500"
+                       type="text" placeholder="Введіть своє повне ім'я">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-white" for="username">Ім'я користувача</label>
+                <input th:field="*{username}" required
+                       class="block w-full rounded-md bg-white/5 px-3 py-2 text-white placeholder:text-white outline-none focus:outline-indigo-500"
+                       type="text" placeholder="Введіть своє ім'я користувача">
+                <span th:if="${Userexist}" class="text-red-500 text-sm">Ім'я користувача зайнято</span>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-white" for="password">Пароль</label>
+                <input th:field="*{password}" required
+                       class="block w-full rounded-md bg-white/5 px-3 py-2 text-white placeholder:text-white outline-none focus:outline-indigo-500"
+                       type="password" placeholder="Введіть свій пароль">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-white" for="address">Адреса</label>
+                <input th:field="*{address}" required
+                       class="block w-full rounded-md bg-white/5 px-3 py-2 text-white placeholder:text-white outline-none focus:outline-indigo-500"
+                       type="text" placeholder="Введіть свою адресу">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-white" for="email">Адреса електронної пошти</label>
+                <input th:field="*{email}" required
+                       class="block w-full rounded-md bg-white/5 px-3 py-2 text-white placeholder:text-white outline-none focus:outline-indigo-500"
+                       type="email" placeholder="Введіть свою електронну адресу">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-white" for="CardDetails">Card Details</label>
+                <input th:field="*{CardDetails}" required
+                       class="block w-full rounded-md bg-white/5 px-3 py-2 text-white placeholder:text-white outline-none focus:outline-indigo-500"
+                       type="text" placeholder="Введіть дані вашої картки">
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button type="submit"
+                        class="rounded-md bg-indigo-500 px-4 py-2 font-semibold text-white shadow hover:bg-indigo-400 focus-visible:outline-indigo-500">
+                    Зареєструватися
+                </button>
+                <a th:href="@{/}" class="rounded-md bg-gray-500 px-4 py-2 font-semibold text-white hover:bg-gray-400">На Головну</a>
+            </div>
+
+        </form>
+
+        <p class="mt-6 text-center text-sm text-gray-300">
+            Вже маєте обліковий запис? <a th:href="@{/login}" class="font-semibold text-indigo-400 hover:text-indigo-300">Логін
+            тут.</a>
+        </p>
+    </div>
+</div>
+
+</body>
+
+</html>

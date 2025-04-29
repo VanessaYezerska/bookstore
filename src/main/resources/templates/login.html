@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      margin-right: 100px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.75);
+
+      backdrop-filter: blur(15px);
+      width: 400px;
+      padding: 20px;
+    }
+
+    h2 {
+      color: darkslategrey;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #283618;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    button,
+    .btn {
+      background-color: darkslategrey;
+      color: #fff;
+      padding: 9px 18px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button{
+      font-weight: bold;
+      padding: 10px 20px;
+    }
+
+    button:hover,
+    .btn:hover {
+      background-color: gray;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      color: rgb(98, 95, 95);
+    }
+
+    .error-message,
+    .logout-message {
+      background-color: #f07167;
+      color: #fff;
+      padding: 10px;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .error-message{
+      background-color: #f07167;
+    }
+
+    .logout-message{
+      background-color: darkolivegreen;
+    }
+    
+  </style>
+</head>
+
+<body style="background-image: url('/images/login.jpg'); background-size: cover; background-position: center center;">
+<div class="container">
+  <div class="form-container">
+
+    <div th:if="${param.error}">
+      <div class="error-message" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.95);">
+        <p>Invalid Username or Password</p>
+      </div>
+    </div>
+
+    <div th:if="${param.logout}">
+      <div class="logout-message" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.95);">
+        <p>Logout Successful!</p>
+      </div>
+    </div>
+
+    <h2>Login</h2>
+    <form th:action="@{/login}" method="post" role="form" th:object="${user}">
+
+      <label for="username">Ім'я користувача:</label>
+      <input th:field="*{username}" type="text" id="username" name="username"
+             placeholder="Введіть своє ім'я користувача" required>
+
+      <label for="password">Пароль:</label>
+      <input th:field="*{password}" type="password" id="password" name="password" placeholder="Введіть свій пароль" required>
+      <div class="btn-container">
+        <button type="submit">Логін</button>
+        <a class="btn" th:href= "@{/}" style="text-decoration: none;">На Головну</a>
+      </div>
+    </form>
+    <p class="form-footer">Не маєте облікового запису? <a th:href="@{/register}">Реєстрація</a> тут.</p>
+  </div>
+</div>
+</body>
+
+</html>

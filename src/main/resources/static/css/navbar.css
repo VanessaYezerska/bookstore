@@ -1,0 +1,50 @@
+/* Navbar styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.95) !important; /* 50% transparency */
+    transition: background-color 0.3s, color 0.3s;
+    position: fixed !important;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: white !important;
+    transition: color 0.3s;
+}
+
+.navbar:hover {
+    background-color: rgba(255, 254, 254, 0.95) !important; /* 75% transparency */
+}
+
+.navbar:hover .nav-link,
+.navbar:hover .navbar-brand {
+    color: black !important;
+}
+
+/* Hover design for black text */
+.navbar .nav-link:hover {
+    border-bottom: 2px solid black;
+    padding-bottom: 2px;
+}
+
+.navbar-search {
+    transition: background-color 0.3s, color 0.3s;
+    color: black;
+    background-color: lightgrey;
+    border: none;
+}
+.my-element {
+    position: relative;
+    z-index: 1;
+}
+
+
+.navbar-search:hover {
+    background-color: black;
+    color: white !important;
+}
+.sticky-navbar{
+    position: sticky;
+    top: 0;
+}

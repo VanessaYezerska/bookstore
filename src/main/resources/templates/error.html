@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Error</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+</head>
+<body>
+<!-- Navbar -->
+<div th:replace="~{navbar :: navbarTemplate}"></div>
+
+<div class="container mb-5" style="padding-top: 100px;">
+    <h2>Error</h2>
+    <div class="alert alert-danger" role="alert">
+        <p th:text="${errorMessage}">An unexpected error occurred. Please try again later.</p>
+        <p>If you continue to experience issues, please contact our support team for assistance.</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{footer :: footerTemplate}"></div>
+
+</body>
+</html>
